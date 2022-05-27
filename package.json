@@ -1,0 +1,33 @@
+{
+  "name": "strawberry-altar",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/strawberryoolongtea/strawberry-altar.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/strawberryoolongtea/strawberry-altar/issues"
+  },
+  "homepage": "https://github.com/strawberryoolongtea/strawberry-altar#readme",
+  "dependencies": {
+    "next": "^12.1.6",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.7",
+    "postcss": "^8.4.14",
+    "tailwindcss": "^3.0.24"
+  }
+}
