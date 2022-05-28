@@ -2,6 +2,7 @@ import Head from "next/head";
 import Link from "next/link";
 import { useState, useRef } from "react";
 import Header from "../components/Header";
+import Start from "../components/Start";
 
 export default function Home() {
   const [isStart, setIsStart] = useState(false);
@@ -13,7 +14,10 @@ export default function Home() {
   return (
     <>
       <Head></Head>
-      <Header></Header>
+      {/* <Header /> */}
+      <div className="bg-orange-500 h-screen flex justify-center items-center">
+        <Start></Start>
+      </div>
     </>
   );
 }

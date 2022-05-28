@@ -1,9 +1,34 @@
-.title {
-  display: block;
+.title_container {
+  display: flex;
+  justify-content: center;
+  position: fixed;
   width: 100%;
-  height: 40px;
-  text-align: center;
-  line-height: 40px;
-  background-color: #fff;
-  box-shadow: 0 5px 12px #ddd;
+  height: 60px;
+  line-height: 60px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-bottom: 1px solid #ccc;
+
+  .title_inner_container {
+    display: flex;
+    justify-content: center;
+    max-width: 360px;
+    width: 100%;
+    // background-color: aquamarine;
+    .title_ko {
+      display: inline-block;
+      font-family: "Hahmlet", serif;
+      font-weight: 500;
+      font-style: normal;
+      margin: 0 10px;
+    }
+    .title_en {
+      display: inline-block;
+      font-family: shackleton, serif;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 1.5rem;
+      margin: 0 10px;
+      letter-spacing: -0.5px;
+    }
+  }
 }
