@@ -1,23 +1,16 @@
 import Head from "next/head";
-import Link from "next/link";
-import { useState, useRef } from "react";
-import Header from "../components/Header";
+import Image from "next/image";
+import styles from "../styles/Home.module.scss";
 import Start from "../components/Start";
+import StartButton from "../components/buttons/StartButton";
 
 export default function Home() {
-  const [isStart, setIsStart] = useState(false);
-  const [isQuestionShow, setIsQuestionShow] = useState(true);
-  const handleStart = () => {
-    setIsStart(true);
-    setIsQuestionShow(false);
-  };
   return (
-    <>
-      <Head></Head>
-      {/* <Header /> */}
-      <div className="bg-orange-500 h-screen flex justify-center items-center">
-        <Start></Start>
+    <div className={styles.container}>
+      <div className={styles.inner_container}>
+        <Start />
+        <StartButton />
       </div>
-    </>
+    </div>
   );
 }
