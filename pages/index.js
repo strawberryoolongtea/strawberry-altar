@@ -1,16 +1,20 @@
-import Head from "next/head";
+import Link from "next/link";
 import Image from "next/image";
 import styles from "../styles/Home.module.scss";
-import Start from "../components/Start";
-import StartButton from "../components/buttons/StartButton";
 
 export default function Home() {
   return (
-    <div className={styles.container}>
-      <div className={styles.inner_container}>
-        <Start />
-        <StartButton />
+    <section className={styles.container}>
+      <div>
+        <h2 className={styles.sub_title}>소원을 들어줘</h2>
+        <h1 className={styles.title}>My Altar</h1>
       </div>
-    </div>
+      <div className={styles.skull}>
+        <Image src="/skull.svg" alt="skull" width={200} height={200} />
+      </div>
+      <Link href="/step/bottom">
+        <button className={`btn ${styles.btn}`}>나만의 제단 만들기</button>
+      </Link>
+    </section>
   );
 }
