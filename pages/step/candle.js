@@ -1,10 +1,11 @@
 import styles from "../../styles/Candle.module.scss";
 import Link from "next/link";
-import { colors } from "../colors";
+import { colors } from "../../data/colors";
 import Color from "../../components/Color";
 import { useState } from "react";
 export default function Candle() {
   const [colorDescription, setColorDescription] = useState("");
+  const [candleColor, setCandleColor] = useState("");
   return (
     <section className={styles.container}>
       <div className={styles.title}>
@@ -18,7 +19,6 @@ export default function Candle() {
         <ul className={styles.colors}>
           {colors.map((color) => {
             const handleClickColor = () => {
-              // alert(`${color.name}: ${color.color}`);
               setColorDescription(color.description);
             };
             return (
