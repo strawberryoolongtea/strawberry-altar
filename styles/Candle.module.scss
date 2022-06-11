@@ -12,12 +12,25 @@
     font-family: "Hahmlet", serif;
     font-weight: 600;
   }
+  p {
+    font-size: 0.8rem;
+  }
 }
 .candle {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   width: 300px;
   height: 300px;
-  background-color: #dcff00;
-  margin: 2rem 0;
+  // background-color: #dcff00;
+  margin: 2rem 0 0;
+  p {
+    width: 300px;
+    background-color: #dcff00;
+    font-size: 0.8rem;
+    text-align: center;
+    color: #dcff00;
+  }
 }
 .colors {
   display: flex;

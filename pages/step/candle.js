@@ -5,21 +5,29 @@ import Color from "../../components/Color";
 import { useState } from "react";
 export default function Candle() {
   const [colorDescription, setColorDescription] = useState("");
-  const [candleColor, setCandleColor] = useState("");
+  const [candleColor, setCandleColor] = useState("#dcff00");
   return (
     <section className={styles.container}>
       <div className={styles.title}>
         <h1 className={styles.text_en}>Step 2</h1>
         <h2 className={styles.text_ko}>촛불을 밝히세요.</h2>
+        <p>
+          초는 색상에 따라 특별한 의미가 있습니다. 소원과 관련된 적절한 색상을
+          선택해주세요.
+        </p>
       </div>
       <div>
-        <div className={styles.candle}>
+        <div
+          className={styles.candle}
+          style={{ backgroundColor: `${candleColor}` }}
+        >
           <p>{colorDescription}</p>
         </div>
         <ul className={styles.colors}>
           {colors.map((color) => {
             const handleClickColor = () => {
               setColorDescription(color.description);
+              setCandleColor(color.color);
             };
             return (
               <li

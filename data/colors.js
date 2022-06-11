@@ -21,7 +21,7 @@ export const colors = [
   },
   {
     name: "brown",
-    color: "#a52a2a",
+    color: "#66362c",
     description: "호의/우정/그라운딩/안정감",
   },
   {
