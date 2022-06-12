@@ -1,10 +1,11 @@
 import Link from "next/link";
+import styles from "../../styles/Items.module.scss";
 export default function Items() {
   return (
     <section>
-      <div>
-        <h1>Step 3</h1>
-        <h2>성물을 장식하세요.</h2>
+      <div className={styles.title}>
+        <h1 className={styles.text_en}>Step 3</h1>
+        <h2 className={styles.text_ko}>성물을 장식하세요.</h2>
       </div>
       <div>
         <Link href="/step/candle">
