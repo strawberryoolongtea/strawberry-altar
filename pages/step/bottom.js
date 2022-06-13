@@ -1,15 +1,22 @@
 import styles from "../../styles/Bottom.module.scss";
 import Link from "next/link";
 import { useState } from "react";
+import { bottoms } from "../../data/bottoms";
+import Image from "next/image";
+
 export default function Bottom() {
+  const [bottomStyle, setBottomStyle] = useState(bottoms[0].img);
   const [translateValue, setTranslateValue] = useState(300);
+  console.log(bottomStyle.id);
   function handlePrev() {
     switch (translateValue) {
       case 0:
         setTranslateValue(300);
+        setBottomStyle(bottoms[0].img);
         break;
       case -300:
         setTranslateValue(0);
+        setBottomStyle(bottoms[1].img);
         break;
     }
   }
@@ -17,9 +24,11 @@ export default function Bottom() {
     switch (translateValue) {
       case 300:
         setTranslateValue(0);
+        setBottomStyle(bottoms[1].img);
         break;
       case 0:
         setTranslateValue(-300);
+        setBottomStyle(bottoms[2].img);
         break;
     }
   }
@@ -34,7 +43,14 @@ export default function Bottom() {
           className={styles.bottoms}
           style={{ transform: `translateX(${translateValue}px)` }}
         >
-          <li className={styles.bottom}>제단 1</li>
+          <li className={styles.bottom}>
+            <Image
+              src={`/${bottomStyle}`}
+              alt="skull"
+              width={200}
+              height={200}
+            />
+          </li>
           <li className={styles.bottom}>제단 2</li>
           <li className={styles.bottom}>제단 3</li>
         </ul>

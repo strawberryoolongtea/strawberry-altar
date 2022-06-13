@@ -5,7 +5,7 @@ import Color from "../../components/Color";
 import { useState } from "react";
 export default function Candle() {
   const [colorDescription, setColorDescription] = useState("");
-  const [candleColor, setCandleColor] = useState("#dcff00");
+  const [candleColor, setCandleColor] = useState(colors[0].color);
   return (
     <section className={styles.container}>
       <div className={styles.title}>
