@@ -3,6 +3,7 @@
   flex-direction: column;
   align-items: center;
 }
+
 .title {
   font-family: shackleton, serif;
   font-size: 2.5rem;
@@ -10,7 +11,7 @@
   margin: 0 0 5rem;
   opacity: 0;
   animation: 0.8s ease-out 1s forwards show;
-  // background-color: blue;
+  color: #e9bc00;
 }
 .sub_title {
   font-family: "Hahmlet", serif;
@@ -18,7 +19,7 @@
   font-weight: 600;
   text-align: center;
   animation: 0.8s ease-out show;
-  // background-color: red;
+  color: #e9bc00;
 }
 .skull {
   // background-color: #dcff00;

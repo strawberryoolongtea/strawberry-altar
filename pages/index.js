@@ -12,7 +12,7 @@ export default function Home() {
       <div className={styles.skull}>
         <Image src="/skull.svg" alt="skull" width={200} height={200} />
       </div>
-      <Link href="/step/bottom">
+      <Link href="/step">
         <button className={`btn ${styles.btn}`}>나만의 제단 만들기</button>
       </Link>
     </section>
