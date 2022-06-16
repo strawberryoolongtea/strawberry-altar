@@ -1,5 +1,5 @@
-const width = 300;
-const height = 300;
+const width = 280;
+const height = 280;
 
 export const bottoms = [
   {

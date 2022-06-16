@@ -3,7 +3,7 @@ import styles from "../styles/Items.module.scss";
 import { bottoms } from "../data/bottoms";
 
 export default function Items({ toSecondStep, magicCircle, translateValue }) {
-  console.log(bottoms.filter((bottom) => bottom.id === magicCircle)[0].src);
+  const bg = bottoms.filter((bottom) => bottom.id === magicCircle)[0].src;
   function toPrevStep() {
     toSecondStep();
   }
@@ -13,6 +13,7 @@ export default function Items({ toSecondStep, magicCircle, translateValue }) {
         <h1 className={styles.text_en}>Step 3</h1>
         <h2 className={styles.text_ko}>성물을 장식하세요.</h2>
       </div>
+      <div style={{ background: `url(${bg})`, width: 300, height: 300 }}></div>
       <div>
         <button className="btn" onClick={toPrevStep}>
           이전

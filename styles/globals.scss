@@ -50,6 +50,10 @@ a {
     }
   }
 }
+.btns {
+  display: flex;
+  justify-content: space-between;
+}
 .btn {
   padding: 0.8rem 3rem;
   border: none;

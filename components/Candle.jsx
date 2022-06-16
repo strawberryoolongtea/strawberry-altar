@@ -3,6 +3,9 @@ import Link from "next/link";
 import { colors } from "../data/colors";
 import Color from "./Color";
 import { useState } from "react";
+import Image from "next/image";
+import ColorCandle from "./colorCandle";
+
 export default function Candle({ toFirstStep, toThirdStep }) {
   // console.log(toFirstStep);
   const [colorDescription, setColorDescription] = useState("");
@@ -24,11 +27,8 @@ export default function Candle({ toFirstStep, toThirdStep }) {
         </p> */}
       </div>
       <div>
-        <div
-          className={styles.candle}
-          style={{ backgroundColor: `${candleColor}` }}
-        >
-          <p>{colorDescription}</p>
+        <div className={styles.candle}>
+          <ColorCandle {...colors[2]} />
         </div>
         <ul className={styles.colors}>
           {colors.map((color) => {
@@ -46,7 +46,7 @@ export default function Candle({ toFirstStep, toThirdStep }) {
           })}
         </ul>
       </div>
-      <div>
+      <div className="btns">
         <button className="btn" onClick={toPrevStep}>
           이전
         </button>
