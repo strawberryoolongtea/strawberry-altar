@@ -28,7 +28,7 @@ export default function Candle({ toFirstStep, toThirdStep }) {
       </div>
       <div>
         <div className={styles.candle}>
-          <ColorCandle {...colors[2]} />
+          <ColorCandle {...colors[1]} />
         </div>
         <ul className={styles.colors}>
           {colors.map((color) => {
