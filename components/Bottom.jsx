@@ -18,7 +18,7 @@ export default function Bottom({
 }) {
   function toNextStep() {
     toSecondStep();
-    alert(magicCircle);
+    // alert(magicCircle);
   }
   function handlePrev() {
     switch (translateValue) {

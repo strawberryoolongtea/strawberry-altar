@@ -3,9 +3,18 @@ import styles from "../styles/Items.module.scss";
 import { bottoms } from "../data/bottoms";
 import ColorCandle from "./colorCandle";
 import MagicCircle from "./MagicCircle";
+import { colors } from "../data/colors";
 
-export default function Items({ toSecondStep, magicCircle, translateValue }) {
+export default function Items({
+  toSecondStep,
+  magicCircle,
+  candleColor,
+  translateValue,
+}) {
   const bg = bottoms.filter((bottom) => bottom.id === magicCircle)[0].src;
+  const selectedCandle = colors.filter(
+    (color) => color.name === candleColor
+  )[0];
   function toPrevStep() {
     toSecondStep();
   }
@@ -20,15 +29,10 @@ export default function Items({ toSecondStep, magicCircle, translateValue }) {
           <MagicCircle src={bg} alt="altar style 1" width={300} height={300} />
         </ul>
         <div className={styles.candle_container}>
-          <ColorCandle
-            src="/candle/candle-black.svg"
-            alt="pink candle"
-            width={1200}
-            height={1200}
-          />
+          <ColorCandle {...selectedCandle} />
         </div>
       </div>
-      <div>
+      <div className="btns">
         <button className="btn" onClick={toPrevStep}>
           이전
         </button>

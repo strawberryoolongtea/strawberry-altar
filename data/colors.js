@@ -94,7 +94,7 @@ export const colors = [
   },
   {
     name: "orange",
-    color: "#ffa500",
+    color: "#ff8c00",
     src: "/candle/candle-orange.svg",
     alt: "orange candle",
     description: "성공/법적문제/정의/거래에서의성공/즐거움/지식",
@@ -103,7 +103,7 @@ export const colors = [
   },
   {
     name: "yellow",
-    color: "#ffff00",
+    color: "#ffd700",
     src: "/candle/candle-yellow.svg",
     alt: "yellow candle",
     description: "지식/호기심/취업/오컬트지식/커뮤니케이션/소환",
