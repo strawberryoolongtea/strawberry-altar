@@ -1,7 +1,7 @@
 import Link from "next/link";
 import styles from "../styles/Items.module.scss";
 import { bottoms } from "../data/bottoms";
-import ColorCandle from "./colorCandle";
+import ColorCandle from "./ColorCandle";
 import MagicCircle from "./MagicCircle";
 import { colors } from "../data/colors";
 

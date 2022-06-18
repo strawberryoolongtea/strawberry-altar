@@ -4,7 +4,7 @@ import { colors } from "../data/colors";
 import Color from "./Color";
 import { useRef, useState } from "react";
 import Image from "next/image";
-import ColorCandle from "./colorCandle";
+import ColorCandle from "./ColorCandle";
 
 export default function Candle({
   toFirstStep,
