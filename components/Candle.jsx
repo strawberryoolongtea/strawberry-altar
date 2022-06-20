@@ -50,10 +50,10 @@ export default function Candle({
       </div>
       <div className="btns">
         <button className="btn" onClick={toPrevStep}>
-          이전
+          뒤로
         </button>
         <button className="btn" onClick={toNextStep}>
-          다음
+          다음 단계로
         </button>
       </div>
     </section>

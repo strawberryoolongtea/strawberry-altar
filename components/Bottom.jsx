@@ -18,7 +18,6 @@ export default function Bottom({
 }) {
   function toNextStep() {
     toSecondStep();
-    // alert(magicCircle);
   }
   function handlePrev() {
     switch (translateValue) {
@@ -59,13 +58,6 @@ export default function Bottom({
         <h2 className={styles.text_ko}>마법진을 그리세요.</h2>
       </div>
       <div className={styles.bottom_wrapper}>
-        {/* <MagicCircle
-          className={styles.bottom}
-          src="/altar/altar1.svg"
-          alt="altar style"
-          width={260}
-          height={260}
-        /> */}
         <ul
           className={styles.bottoms}
           style={{ transform: `translateX(${translateValue}px)` }}
@@ -93,7 +85,7 @@ export default function Bottom({
       </div>
       <div>
         <button className="btn" onClick={toNextStep}>
-          다음
+          다음 단계로
         </button>
       </div>
     </section>
