@@ -4,6 +4,7 @@ import Candle from "../../components/Candle";
 import Items from "../../components/Items";
 import { bottoms } from "../../data/bottoms";
 import { colors } from "../../data/colors";
+import { items } from "../../data/items";
 
 export default function Step() {
   const [isFirstStep, setIsFirstStep] = useState(true);
@@ -15,7 +16,8 @@ export default function Step() {
   );
   const [magicCircle, setMagicCircle] = useState(1);
   const [candleColor, setCandleColor] = useState(colors[0].name);
-  const [magicItems, setMagicItems] = useState(["Glass", "Insence"]);
+  // const [magicItems, setMagicItems] = useState(items.slice(0, 4));
+  const [magicItems, setMagicItems] = useState([]);
 
   function toFirstStep() {
     setIsFirstStep(true);
@@ -57,6 +59,7 @@ export default function Step() {
           candleColor={candleColor}
           translateValue={translateValue}
           magicItems={magicItems}
+          setMagicItems={setMagicItems}
         />
       )}
     </div>

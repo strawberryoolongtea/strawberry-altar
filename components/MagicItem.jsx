@@ -1,12 +1,5 @@
 import Image from "next/image";
 
-export default function MagicItem({ item }) {
-  return (
-    <Image
-      src={item.src}
-      alt={item.alt}
-      width={item.width}
-      height={item.height}
-    />
-  );
+export default function MagicItem({ src, alt, width, height }) {
+  return <Image src={src} alt={alt} width={width} height={height} />;
 }
