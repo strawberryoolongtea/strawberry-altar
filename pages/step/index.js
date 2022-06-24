@@ -2,6 +2,7 @@ import { useState } from "react";
 import Bottom from "../../components/Bottom";
 import Candle from "../../components/Candle";
 import Items from "../../components/Items";
+import Result from "../../components/Result";
 import { bottoms } from "../../data/bottoms";
 import { colors } from "../../data/colors";
 import { items } from "../../data/items";
@@ -9,7 +10,7 @@ import { items } from "../../data/items";
 export default function Step() {
   const [isFirstStep, setIsFirstStep] = useState(true);
   const [isSecondStep, setIsSecondStep] = useState(false);
-  // const [isThirdStep, setIsThirdStep] = useState(false);
+  const [isThirdStep, setIsThirdStep] = useState(false);
 
   const [translateValue, setTranslateValue] = useState(
     bottoms[0].translateValue
@@ -29,6 +30,10 @@ export default function Step() {
   }
   function toThirdStep() {
     setIsSecondStep(false);
+    setIsThirdStep(true);
+  }
+  function toResult() {
+    setIsThirdStep(false);
   }
   function changeCandleColor(color) {
     setCandleColor(color);
@@ -52,15 +57,18 @@ export default function Step() {
           candleColor={candleColor}
           changeCandleColor={changeCandleColor}
         />
-      ) : (
+      ) : isThirdStep ? (
         <Items
           toSecondStep={toSecondStep}
+          toResult={toResult}
           magicCircle={magicCircle}
           candleColor={candleColor}
           translateValue={translateValue}
           magicItems={magicItems}
           setMagicItems={setMagicItems}
         />
+      ) : (
+        <Result toThirdStep={toThirdStep} />
       )}
     </div>
   );

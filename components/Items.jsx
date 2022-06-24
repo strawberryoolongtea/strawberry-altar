@@ -10,6 +10,7 @@ import Image from "next/image";
 
 export default function Items({
   toSecondStep,
+  toResult,
   magicCircle,
   candleColor,
   translateValue,
@@ -22,6 +23,9 @@ export default function Items({
   )[0];
   function toPrevStep() {
     toSecondStep();
+  }
+  function toNextStep() {
+    toResult();
   }
   function addItem(e) {
     const selectedItem = e.target;
@@ -77,7 +81,9 @@ export default function Items({
         <button className="btn" onClick={toPrevStep}>
           이전
         </button>
-        <button className="btn">다음</button>
+        <button className="btn" onClick={toNextStep}>
+          다음
+        </button>
       </div>
       <div className={styles.items_list}>
         <ul className={styles.items}>
