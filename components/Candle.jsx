@@ -30,11 +30,15 @@ export default function Candle({
       <div className={styles.title}>
         <h1 className={styles.text_en}>Step 2</h1>
         <h2 className={styles.text_ko}>촛불을 밝히세요.</h2>
+        <p className={styles.title_desc}>
+          초는 색상에 따라 특별한 의미가 있습니다.
+        </p>
       </div>
       <div>
         <div className={styles.candle}>
           <ColorCandle {...selectedColor} />
         </div>
+        <p className={styles.candle_desc}>{selectedColor.description}</p>
         <ul className={styles.colors}>
           {colors.map((color) => {
             return (

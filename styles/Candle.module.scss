@@ -15,6 +15,9 @@
     font-weight: 500;
     color: #e9bc00;
   }
+  .title_desc {
+    margin: 10px 0 0;
+  }
 }
 .candle {
   display: flex;
@@ -41,4 +44,9 @@
     border-radius: 20px;
     cursor: pointer;
   }
+}
+.candle_desc {
+  width: 300px;
+  font-size: 0.8rem;
+  text-align: center;
 }

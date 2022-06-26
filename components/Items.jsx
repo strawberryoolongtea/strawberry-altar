@@ -56,10 +56,6 @@ export default function Items({
   console.log(magicItems);
   return (
     <section className={styles.container}>
-      {/* <div className={styles.title}>
-        <h1 className={styles.text_en}>Step 3</h1>
-        <h2 className={styles.text_ko}>성물을 장식하세요.</h2>
-      </div> */}
       <div className={styles.bottom_candle_container}>
         <ul className={styles.bottom_container}>
           <MagicCircle src={bg} alt="altar style 1" width={300} height={300} />
@@ -79,10 +75,10 @@ export default function Items({
       </div>
       <div className="btns">
         <button className="btn" onClick={toPrevStep}>
-          이전
+          뒤로
         </button>
         <button className="btn" onClick={toNextStep}>
-          다음
+          완성
         </button>
       </div>
       <div className={styles.items_list}>

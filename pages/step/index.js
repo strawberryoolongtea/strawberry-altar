@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Bottom from "../../components/Bottom";
 import Candle from "../../components/Candle";
+import Inter from "../../components/Inter";
 import Items from "../../components/Items";
 import Result from "../../components/Result";
 import { bottoms } from "../../data/bottoms";
@@ -11,29 +12,38 @@ export default function Step() {
   const [isFirstStep, setIsFirstStep] = useState(true);
   const [isSecondStep, setIsSecondStep] = useState(false);
   const [isThirdStep, setIsThirdStep] = useState(false);
+  const [isItemsStep, setIsItemsStep] = useState(false);
 
   const [translateValue, setTranslateValue] = useState(
     bottoms[0].translateValue
   );
   const [magicCircle, setMagicCircle] = useState(1);
   const [candleColor, setCandleColor] = useState(colors[0].name);
-  // const [magicItems, setMagicItems] = useState(items.slice(0, 4));
   const [magicItems, setMagicItems] = useState([]);
 
   function toFirstStep() {
-    setIsFirstStep(true);
     setIsSecondStep(false);
+    setIsFirstStep(true);
+    console.log(isFirstStep, isSecondStep, isThirdStep, isItemsStep);
   }
   function toSecondStep() {
     setIsFirstStep(false);
     setIsSecondStep(true);
+    console.log(isFirstStep, isSecondStep, isThirdStep, isItemsStep);
   }
   function toThirdStep() {
     setIsSecondStep(false);
     setIsThirdStep(true);
+    console.log(isFirstStep, isSecondStep, isThirdStep, isItemsStep);
+  }
+  function toItemsStep() {
+    setIsThirdStep(false);
+    setIsItemsStep(true);
+    console.log(isFirstStep, isSecondStep, isThirdStep, isItemsStep);
   }
   function toResult() {
-    setIsThirdStep(false);
+    setIsItemsStep(false);
+    console.log(isFirstStep, isSecondStep, isThirdStep, isItemsStep);
   }
   function changeCandleColor(color) {
     setCandleColor(color);
@@ -58,6 +68,13 @@ export default function Step() {
           changeCandleColor={changeCandleColor}
         />
       ) : isThirdStep ? (
+        <Inter
+          toSecondStep={toSecondStep}
+          toItemsStep={toItemsStep}
+          magicCircle={magicCircle}
+          candleColor={candleColor}
+        />
+      ) : isItemsStep ? (
         <Items
           toSecondStep={toSecondStep}
           toResult={toResult}
@@ -68,7 +85,7 @@ export default function Step() {
           setMagicItems={setMagicItems}
         />
       ) : (
-        <Result toThirdStep={toThirdStep} />
+        <Result toItemsStep={toItemsStep} />
       )}
     </div>
   );

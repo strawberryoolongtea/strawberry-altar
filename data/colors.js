@@ -7,7 +7,7 @@ export const colors = [
     color: "#008000",
     src: "/candle/candle-green.svg",
     alt: "green candle",
-    description: "발전/성장/목표/재물/행운/돈/풍요/물리적치유/그라운딩",
+    description: "발전/성장/목표/재물/행운/풍요/물리적치유/그라운딩",
     width,
     height,
   },

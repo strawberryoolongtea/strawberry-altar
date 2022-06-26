@@ -55,7 +55,7 @@ export default function Bottom({
     <section className={styles.container}>
       <div className={styles.title}>
         <h1 className={styles.text_en}>Step 1</h1>
-        <h2 className={styles.text_ko}>마법진을 그리세요.</h2>
+        <h2 className={styles.text_ko}>펜타클을 준비하세요.</h2>
       </div>
       <div className={styles.bottom_wrapper}>
         <ul
