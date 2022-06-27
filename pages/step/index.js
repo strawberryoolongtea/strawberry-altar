@@ -85,7 +85,12 @@ export default function Step() {
           setMagicItems={setMagicItems}
         />
       ) : (
-        <Result toItemsStep={toItemsStep} />
+        <Result
+          toFirstStep={toFirstStep}
+          magicCircle={magicCircle}
+          candleColor={candleColor}
+          magicItems={magicItems}
+        />
       )}
     </div>
   );
