@@ -2,6 +2,7 @@
   margin: 2rem 0 0;
   .title {
     text-align: center;
+    // margin: 0 0 2rem;
 
     .text_en {
       font-family: shackleton, serif;
@@ -22,8 +23,18 @@
     height: 100%;
     position: relative;
     border: 1px solid #e9bc00;
-    margin: 2rem 0;
+    // cursor: pointer;
+    // margin: 2rem 0;
+    .merged_container {
+      display: none;
+      position: absolute;
+      background-color: #1c2b00;
+      width: 300px;
+      height: 300px;
+    }
     .bottom_container {
+      width: 300px;
+      height: 300px;
       list-style: none;
       opacity: 0.5;
       // background-color: #6b5d00;
@@ -45,30 +56,63 @@
       position: absolute;
       top: 0;
       left: 0;
-      background-color: transparent;
-      li {
+      // background-color: #dcff00;
+
+      // .items {
+      //   list-style: none;
+      //   position: absolute;
+      //   top: 100px;
+      //   left: 0px;
+      // }
+      .items:first-child {
         list-style: none;
         position: absolute;
-      }
-      li:first-child {
-        top: 15px;
+        top: 150px;
         left: 15px;
       }
-      li:nth-child(2) {
-        top: 15px;
+      .items:nth-child(2) {
+        list-style: none;
+        position: absolute;
+        top: 150px;
         right: 15px;
       }
-      li:nth-child(3) {
+      .items:nth-child(3) {
+        list-style: none;
+        position: absolute;
         bottom: 15px;
         left: 15px;
       }
-      li:last-child {
+      .items:last-child {
+        list-style: none;
+        position: absolute;
         bottom: 15px;
         right: 15px;
       }
     }
   }
   .description {
-    margin: 0 0 20px;
+    text-align: center;
+    margin: 1rem 0 0;
+  }
+}
+
+.btns {
+  // background-color: #e9bc00;
+  display: flex;
+  justify-content: space-around;
+  width: 300px;
+  .btn {
+    // width: 100%;
+    margin: 1rem 0;
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 999px;
+    background-color: #e9bc00;
+    color: #1c2b00;
+    font-family: "Hahmlet", serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    box-sizing: border-box;
+    cursor: pointer;
   }
 }

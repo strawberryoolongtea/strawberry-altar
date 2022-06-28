@@ -43,13 +43,13 @@ export default function Step() {
   }
   function toResult() {
     setIsItemsStep(false);
-    console.log(isFirstStep, isSecondStep, isThirdStep, isItemsStep);
+    // console.log(isFirstStep, isSecondStep, isThirdStep, isItemsStep);
   }
   function changeCandleColor(color) {
     setCandleColor(color);
   }
 
-  console.log(candleColor);
+  // console.log(candleColor);
   return (
     <div>
       {isFirstStep ? (
