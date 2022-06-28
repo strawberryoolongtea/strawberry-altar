@@ -43,9 +43,11 @@ export default function Result({
     const mergedCtx = merged.getContext("2d");
 
     bgCtx.fillStyle = "#2a3e34";
-    bgCtx.fillRect(0, 0, 600, 600);
-    mergedCtx.drawImage(bg, 0, 0, 600, 600);
-    mergedCtx.drawImage(bottom, 0, 0, 600, 600);
+    bgCtx.fillRect(0, 0, 1000, 1000);
+    mergedCtx.imageSmoothingEnabled = true;
+    mergedCtx.imageSmoothingQuality = "high";
+    mergedCtx.drawImage(bg, 0, 0, 1000, 1000);
+    mergedCtx.drawImage(bottom, 0, 0, 1000, 1000);
     const xy = [
       [20, 20],
       [330, 20],
@@ -54,9 +56,9 @@ export default function Result({
     ];
     itemRef.current.map((item, idx) => {
       console.log(item);
-      mergedCtx.drawImage(item, ...xy[idx], 240, 240);
+      mergedCtx.drawImage(item, ...xy[idx], 540, 540);
     });
-    mergedCtx.drawImage(candle, 0, 0, 600, 600);
+    mergedCtx.drawImage(candle, 0, 0, 1000, 1000);
 
     let link = document.createElement("a");
     link.download = "my-altar.png";
@@ -83,10 +85,10 @@ export default function Result({
 
     bottomImg.onload = function () {
       bottomCtx.globalAlpha = 0.3;
-      bottomCtx.drawImage(bottomImg, 0, 0, 600, 600);
+      bottomCtx.drawImage(bottomImg, 0, 0, 1000, 1000);
     };
     candleImg.onload = function () {
-      candleCtx.drawImage(candleImg, 0, 0, 600, 600);
+      candleCtx.drawImage(candleImg, 0, 0, 1000, 1000);
     };
     magicItems.map((magicItem, idx) => {
       // console.log(itemRef.current);
@@ -95,7 +97,7 @@ export default function Result({
       itemImg.src = magicItem.src;
       // console.log(itemImg);
       itemImg.onload = function () {
-        itemCtx.drawImage(itemImg, 0, 0, 240, 240);
+        itemCtx.drawImage(itemImg, 0, 0, 540, 540);
       };
     });
 
@@ -119,26 +121,26 @@ export default function Result({
       <div className={styles.bottom_candle_container} ref={cvsRef}>
         <canvas
           className={styles.bg_canvas}
-          width="600"
-          height="600"
+          width="1000"
+          height="1000"
           ref={bgRef}
         />
         <canvas
           className={styles.merged_container}
-          width="600"
-          height="600"
+          width="1000"
+          height="1000"
           ref={mergedRef}
         />
         <canvas
           className={styles.bottom_container}
-          width="600"
-          height="600"
+          width="1000"
+          height="1000"
           ref={bottomRef}
         />
         <canvas
           className={styles.candle_container}
-          width="600"
-          height="600"
+          width="1000"
+          height="1000"
           ref={candleRef}
         />
         <ul className={styles.items_container}>
@@ -148,8 +150,8 @@ export default function Result({
                 <canvas
                   className={styles.items_canvas}
                   id={idx}
-                  width="240"
-                  height="240"
+                  width="540"
+                  height="540"
                   ref={(el) => (itemRef.current[idx] = el)}
                 />
               </li>
