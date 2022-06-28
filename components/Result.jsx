@@ -78,9 +78,6 @@ export default function Result({
     const bottomImg = new Image();
     const candleImg = new Image();
 
-    bgCtx.fillStyle = "#dcff00";
-    bgCtx.fillRect(0, 0, 600, 600);
-
     bottomImg.src = bg.src;
     candleImg.src = selectedCandle.src;
 
