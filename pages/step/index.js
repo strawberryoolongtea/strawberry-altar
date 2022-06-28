@@ -24,22 +24,22 @@ export default function Step() {
   function toFirstStep() {
     setIsSecondStep(false);
     setIsFirstStep(true);
-    console.log(isFirstStep, isSecondStep, isThirdStep, isItemsStep);
+    // console.log(isFirstStep, isSecondStep, isThirdStep, isItemsStep);
   }
   function toSecondStep() {
     setIsFirstStep(false);
     setIsSecondStep(true);
-    console.log(isFirstStep, isSecondStep, isThirdStep, isItemsStep);
+    // console.log(isFirstStep, isSecondStep, isThirdStep, isItemsStep);
   }
   function toThirdStep() {
     setIsSecondStep(false);
     setIsThirdStep(true);
-    console.log(isFirstStep, isSecondStep, isThirdStep, isItemsStep);
+    // console.log(isFirstStep, isSecondStep, isThirdStep, isItemsStep);
   }
   function toItemsStep() {
     setIsThirdStep(false);
     setIsItemsStep(true);
-    console.log(isFirstStep, isSecondStep, isThirdStep, isItemsStep);
+    // console.log(isFirstStep, isSecondStep, isThirdStep, isItemsStep);
   }
   function toResult() {
     setIsItemsStep(false);

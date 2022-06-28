@@ -24,7 +24,7 @@ export default function Candle({
     toThirdStep();
   }
   const selectedColor = colors.filter((color) => color.name === candleColor)[0];
-  console.log(selectedColor);
+  // console.log(selectedColor);
   return (
     <section className={styles.container}>
       <div className={styles.title}>

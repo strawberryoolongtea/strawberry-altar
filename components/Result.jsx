@@ -27,19 +27,32 @@ export default function Result({
   const bottomRef = useRef();
   const candleRef = useRef();
   const mergedRef = useRef();
-  const itemRef = useRef();
+  const itemRef = useRef([]);
+  const bgRef = useRef();
 
   function onSaveAs() {
     const bottom = bottomRef.current;
     const candle = candleRef.current;
     const merged = mergedRef.current;
-    const bottomCtx = bottom.getContext("2d");
-    const candleCtx = candle.getContext("2d");
+    const bg = bgRef.current;
+    const bgCtx = bg.getContext("2d");
     const mergedCtx = merged.getContext("2d");
 
-    mergedCtx.fillStyle = "white";
-    mergedCtx.drawImage(bottom, 0, 0, 3000, 3000);
-    mergedCtx.drawImage(candle, 0, 0, 3000, 3000);
+    bgCtx.fillStyle = "#2a3e34";
+    bgCtx.fillRect(0, 0, 300, 300);
+    mergedCtx.drawImage(bg, 0, 0, 300, 300);
+    mergedCtx.drawImage(bottom, 0, 0, 300, 300);
+    const xy = [
+      [10, 10],
+      [170, 10],
+      [10, 170],
+      [170, 170],
+    ];
+    itemRef.current.map((item, idx) => {
+      console.log(item);
+      mergedCtx.drawImage(item, ...xy[idx], 120, 120);
+    });
+    mergedCtx.drawImage(candle, 0, 0, 300, 300);
 
     let link = document.createElement("a");
     link.download = "my-altar.png";
@@ -52,7 +65,6 @@ export default function Result({
   useEffect(() => {
     const bottom = bottomRef.current;
     const candle = candleRef.current;
-    const item = itemRef.current;
     const bottomCtx = bottom.getContext("2d");
     const candleCtx = candle.getContext("2d");
 
@@ -70,14 +82,14 @@ export default function Result({
     };
     console.log("map 이전");
     console.log(magicItems);
-    magicItems.map((magicItem) => {
+    magicItems.map((magicItem, idx) => {
       console.log(itemRef.current);
-      const itemCtx = itemRef.current.getContext("2d");
+      const itemCtx = itemRef.current[idx].getContext("2d");
       const itemImg = new Image();
       itemImg.src = magicItem.src;
       console.log(itemImg);
       itemImg.onload = function () {
-        itemCtx.drawImage(itemImg, 0, 0, 150, 150);
+        itemCtx.drawImage(itemImg, 0, 0, 120, 120);
       };
     });
     console.log("map 이후");
@@ -98,28 +110,39 @@ export default function Result({
       </div>
       <div className={styles.bottom_candle_container}>
         <canvas
+          className={styles.bg_canvas}
+          width="300"
+          height="300"
+          ref={bgRef}
+        />
+        <canvas
           className={styles.merged_container}
-          width="3000"
-          height="3000"
+          width="300"
+          height="300"
           ref={mergedRef}
         />
         <canvas
           className={styles.bottom_container}
-          width="3000"
-          height="3000"
+          width="300"
+          height="300"
           ref={bottomRef}
         />
         <canvas
           className={styles.candle_container}
-          width="3000"
-          height="3000"
+          width="300"
+          height="300"
           ref={candleRef}
         />
         <ul className={styles.items_container}>
           {magicItems.map((item, idx) => {
             return (
               <li className={styles.items} key={item.alt}>
-                <canvas id={idx} width="150" height="150" ref={itemRef} />
+                <canvas
+                  id={idx}
+                  width="120"
+                  height="120"
+                  ref={(el) => (itemRef.current[idx] = el)}
+                />
               </li>
             );
           })}

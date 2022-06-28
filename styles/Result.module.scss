@@ -28,7 +28,7 @@
     .merged_container {
       display: none;
       position: absolute;
-      background-color: #1c2b00;
+      background-color: #2a3e34;
       width: 300px;
       height: 300px;
     }
@@ -67,26 +67,28 @@
       .items:first-child {
         list-style: none;
         position: absolute;
-        top: 150px;
-        left: 15px;
+        top: 10px;
+        left: 10px;
+        // background-color: #dcff00;
       }
       .items:nth-child(2) {
         list-style: none;
         position: absolute;
-        top: 150px;
-        right: 15px;
+        top: 10px;
+        right: 10px;
+        // background-color: #e9bc00;
       }
       .items:nth-child(3) {
         list-style: none;
         position: absolute;
-        bottom: 15px;
-        left: 15px;
+        bottom: 10px;
+        left: 10px;
       }
       .items:last-child {
         list-style: none;
         position: absolute;
-        bottom: 15px;
-        right: 15px;
+        bottom: 10px;
+        right: 10px;
       }
     }
   }
@@ -115,4 +117,7 @@
     box-sizing: border-box;
     cursor: pointer;
   }
+}
+.bg_canvas {
+  display: none;
 }
