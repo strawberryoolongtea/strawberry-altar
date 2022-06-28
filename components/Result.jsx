@@ -86,10 +86,10 @@ export default function Result({
 
     bottomImg.onload = function () {
       bottomCtx.globalAlpha = 0.3;
-      bottomCtx.drawImage(bottomImg, 0, 0);
+      bottomCtx.drawImage(bottomImg, 0, 0, 600, 600);
     };
     candleImg.onload = function () {
-      candleCtx.drawImage(candleImg, 0, 0);
+      candleCtx.drawImage(candleImg, 0, 0, 600, 600);
     };
     magicItems.map((magicItem, idx) => {
       // console.log(itemRef.current);
