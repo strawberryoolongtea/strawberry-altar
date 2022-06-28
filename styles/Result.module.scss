@@ -19,8 +19,10 @@
   }
 
   .bottom_candle_container {
-    width: 100%;
-    height: 100%;
+    // width: 100%;
+    // height: 100%;
+    width: 300px;
+    height: 300px;
     position: relative;
     border: 1px solid #e9bc00;
     // cursor: pointer;
@@ -37,18 +39,15 @@
       height: 300px;
       list-style: none;
       opacity: 0.5;
-      // background-color: #6b5d00;
-      // background-color: #2a3e34;
     }
     .candle_container {
-      width: 15rem;
-      height: 15rem;
+      width: 300px;
+      height: 300px;
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
       z-index: 90;
-      // background-color: #dcff00;
     }
     .items_container {
       width: 100%;
@@ -56,37 +55,28 @@
       position: absolute;
       top: 0;
       left: 0;
-      // background-color: #dcff00;
 
-      // .items {
-      //   list-style: none;
-      //   position: absolute;
-      //   top: 100px;
-      //   left: 0px;
-      // }
-      .items:first-child {
+      .items {
         list-style: none;
         position: absolute;
+        .items_canvas {
+          width: 120px;
+          height: 120px;
+        }
+      }
+      .items:first-child {
         top: 10px;
         left: 10px;
-        // background-color: #dcff00;
       }
       .items:nth-child(2) {
-        list-style: none;
-        position: absolute;
         top: 10px;
         right: 10px;
-        // background-color: #e9bc00;
       }
       .items:nth-child(3) {
-        list-style: none;
-        position: absolute;
         bottom: 10px;
         left: 10px;
       }
       .items:last-child {
-        list-style: none;
-        position: absolute;
         bottom: 10px;
         right: 10px;
       }

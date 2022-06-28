@@ -24,11 +24,15 @@ export default function Result({
   function restart() {
     toFirstStep();
   }
+
+  const [imgUrl, setImgUrl] = useState("");
+
   const bottomRef = useRef();
   const candleRef = useRef();
   const mergedRef = useRef();
   const itemRef = useRef([]);
   const bgRef = useRef();
+  const cvsRef = useRef();
 
   function onSaveAs() {
     const bottom = bottomRef.current;
@@ -39,60 +43,67 @@ export default function Result({
     const mergedCtx = merged.getContext("2d");
 
     bgCtx.fillStyle = "#2a3e34";
-    bgCtx.fillRect(0, 0, 300, 300);
-    mergedCtx.drawImage(bg, 0, 0, 300, 300);
-    mergedCtx.drawImage(bottom, 0, 0, 300, 300);
+    bgCtx.fillRect(0, 0, 600, 600);
+    mergedCtx.drawImage(bg, 0, 0, 600, 600);
+    mergedCtx.drawImage(bottom, 0, 0, 600, 600);
     const xy = [
-      [10, 10],
-      [170, 10],
-      [10, 170],
-      [170, 170],
+      [20, 20],
+      [330, 20],
+      [20, 330],
+      [330, 330],
     ];
     itemRef.current.map((item, idx) => {
       console.log(item);
-      mergedCtx.drawImage(item, ...xy[idx], 120, 120);
+      mergedCtx.drawImage(item, ...xy[idx], 240, 240);
     });
-    mergedCtx.drawImage(candle, 0, 0, 300, 300);
+    mergedCtx.drawImage(candle, 0, 0, 600, 600);
 
     let link = document.createElement("a");
     link.download = "my-altar.png";
     link.href = merged.toDataURL();
+    console.log(merged.toDataURL());
     mergedRef.current.appendChild(link);
     link.click();
     mergedRef.current.removeChild(link);
   }
 
   useEffect(() => {
+    const background = bgRef.current;
     const bottom = bottomRef.current;
     const candle = candleRef.current;
+    const bgCtx = background.getContext("2d");
     const bottomCtx = bottom.getContext("2d");
     const candleCtx = candle.getContext("2d");
 
     const bottomImg = new Image();
     const candleImg = new Image();
 
+    bgCtx.fillStyle = "#dcff00";
+    bgCtx.fillRect(0, 0, 600, 600);
+
     bottomImg.src = bg.src;
     candleImg.src = selectedCandle.src;
 
     bottomImg.onload = function () {
+      bottomCtx.globalAlpha = 0.3;
       bottomCtx.drawImage(bottomImg, 0, 0);
     };
     candleImg.onload = function () {
       candleCtx.drawImage(candleImg, 0, 0);
     };
-    console.log("map 이전");
-    console.log(magicItems);
     magicItems.map((magicItem, idx) => {
-      console.log(itemRef.current);
+      // console.log(itemRef.current);
       const itemCtx = itemRef.current[idx].getContext("2d");
       const itemImg = new Image();
       itemImg.src = magicItem.src;
-      console.log(itemImg);
+      // console.log(itemImg);
       itemImg.onload = function () {
-        itemCtx.drawImage(itemImg, 0, 0, 120, 120);
+        itemCtx.drawImage(itemImg, 0, 0, 240, 240);
       };
     });
-    console.log("map 이후");
+
+    html2canvas(cvsRef.current).then((cvs) => setImgUrl(cvs.toDataURL()));
+    console.log(imgUrl);
   });
   return (
     <section className={styles.container}>
@@ -108,29 +119,29 @@ export default function Result({
           </button>
         </div>
       </div>
-      <div className={styles.bottom_candle_container}>
+      <div className={styles.bottom_candle_container} ref={cvsRef}>
         <canvas
           className={styles.bg_canvas}
-          width="300"
-          height="300"
+          width="600"
+          height="600"
           ref={bgRef}
         />
         <canvas
           className={styles.merged_container}
-          width="300"
-          height="300"
+          width="600"
+          height="600"
           ref={mergedRef}
         />
         <canvas
           className={styles.bottom_container}
-          width="300"
-          height="300"
+          width="600"
+          height="600"
           ref={bottomRef}
         />
         <canvas
           className={styles.candle_container}
-          width="300"
-          height="300"
+          width="600"
+          height="600"
           ref={candleRef}
         />
         <ul className={styles.items_container}>
@@ -138,9 +149,10 @@ export default function Result({
             return (
               <li className={styles.items} key={item.alt}>
                 <canvas
+                  className={styles.items_canvas}
                   id={idx}
-                  width="120"
-                  height="120"
+                  width="240"
+                  height="240"
                   ref={(el) => (itemRef.current[idx] = el)}
                 />
               </li>
@@ -148,7 +160,7 @@ export default function Result({
           })}
         </ul>
       </div>
-
+      <img src={imgUrl} width={300} height={300} alt="altar" />
       <p className={styles.description}>
         주위 사람들이 더 많이 알수록
         <br />
