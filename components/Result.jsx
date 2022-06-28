@@ -160,7 +160,7 @@ export default function Result({
           })}
         </ul>
       </div>
-      <img src={imgUrl} width={300} height={300} alt="altar" />
+      {/* <img src={imgUrl} width={300} height={300} alt="altar" /> */}
       <p className={styles.description}>
         주위 사람들이 더 많이 알수록
         <br />
