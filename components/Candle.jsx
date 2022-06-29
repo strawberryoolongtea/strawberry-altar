@@ -1,9 +1,5 @@
 import styles from "../styles/Candle.module.scss";
-import Link from "next/link";
 import { colors } from "../data/colors";
-import Color from "./Color";
-import { useRef, useState } from "react";
-import Image from "next/image";
 import ColorCandle from "./ColorCandle";
 
 export default function Candle({
@@ -13,7 +9,6 @@ export default function Candle({
   changeCandleColor,
 }) {
   function handleClickColor(e) {
-    // console.log(e.target.id);
     changeCandleColor(e.target.id);
   }
 
@@ -24,7 +19,6 @@ export default function Candle({
     toThirdStep();
   }
   const selectedColor = colors.filter((color) => color.name === candleColor)[0];
-  // console.log(selectedColor);
   return (
     <section className={styles.container}>
       <div className={styles.title}>

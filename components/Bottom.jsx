@@ -1,8 +1,5 @@
 import styles from "../styles/Bottom.module.scss";
-import Link from "next/link";
-import { useState } from "react";
 import { bottoms } from "../data/bottoms";
-import Image from "next/image";
 import {
   MdOutlineKeyboardArrowLeft,
   MdOutlineKeyboardArrowRight,

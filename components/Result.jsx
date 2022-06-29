@@ -1,29 +1,20 @@
 import styles from "../styles/Result.module.scss";
-import Link from "next/link";
 import Image from "next/image";
-import MagicCircle from "./MagicCircle";
-import ColorCandle from "./ColorCandle";
-import MagicItem from "./MagicItem";
 import { bottoms } from "../data/bottoms";
 import { colors } from "../data/colors";
-import html2canvas from "html2canvas";
-import domtoimage from "dom-to-image";
-import { saveAs } from "file-saver";
-import { useEffect, useRef, useState } from "react";
 
 export default function Result({
   toFirstStep,
   magicCircle,
   candleColor,
-  magicItems,
+  setCandleColor,
+  setMagicItems,
   imgUrl,
 }) {
-  const bg = bottoms.filter((bottom) => bottom.id === magicCircle)[0];
-  const selectedCandle = colors.filter(
-    (color) => color.name === candleColor
-  )[0];
   function restart() {
     toFirstStep();
+    setCandleColor(colors[0].name);
+    setMagicItems([]);
   }
 
   return (

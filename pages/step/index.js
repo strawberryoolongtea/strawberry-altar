@@ -6,7 +6,6 @@ import Items from "../../components/Items";
 import Result from "../../components/Result";
 import { bottoms } from "../../data/bottoms";
 import { colors } from "../../data/colors";
-import { items } from "../../data/items";
 
 export default function Step() {
   const [isFirstStep, setIsFirstStep] = useState(true);
@@ -25,32 +24,26 @@ export default function Step() {
   function toFirstStep() {
     setIsSecondStep(false);
     setIsFirstStep(true);
-    // console.log(isFirstStep, isSecondStep, isThirdStep, isItemsStep);
   }
   function toSecondStep() {
     setIsFirstStep(false);
     setIsSecondStep(true);
-    // console.log(isFirstStep, isSecondStep, isThirdStep, isItemsStep);
   }
   function toThirdStep() {
     setIsSecondStep(false);
     setIsThirdStep(true);
-    // console.log(isFirstStep, isSecondStep, isThirdStep, isItemsStep);
   }
   function toItemsStep() {
     setIsThirdStep(false);
     setIsItemsStep(true);
-    // console.log(isFirstStep, isSecondStep, isThirdStep, isItemsStep);
   }
   function toResult() {
     setIsItemsStep(false);
-    // console.log(isFirstStep, isSecondStep, isThirdStep, isItemsStep);
   }
   function changeCandleColor(color) {
     setCandleColor(color);
   }
 
-  // console.log(candleColor);
   return (
     <div>
       {isFirstStep ? (
@@ -91,7 +84,9 @@ export default function Step() {
           toFirstStep={toFirstStep}
           magicCircle={magicCircle}
           candleColor={candleColor}
-          magicItems={magicItems}
+          setMagicCircle={setMagicCircle}
+          setCandleColor={setCandleColor}
+          setMagicItems={setMagicItems}
           imgUrl={imgUrl}
         />
       )}

@@ -1,4 +1,3 @@
-import Link from "next/link";
 import styles from "../styles/Items.module.scss";
 import { bottoms } from "../data/bottoms";
 import { colors } from "../data/colors";
@@ -7,7 +6,7 @@ import ColorCandle from "./ColorCandle";
 import MagicCircle from "./MagicCircle";
 import MagicItem from "./MagicItem";
 import Item from "./Item";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 
 export default function Items({
   toSecondStep,
