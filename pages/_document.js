@@ -5,6 +5,18 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
+          <meta
+            name="description"
+            content="나만의 소원을 이루어 주는 나만의 제단 만들기"
+          />
+          <meta
+            name="viewport"
+            content="initial-scale=1.0, width=device-width"
+          />
+          <meta property="og:title" content="소원을 들어줘 My Altar" />
+          <meta property="og:type" content="website" />
+          <meta property="og:url" content="https://www.odd-scythe.com/" />
+          <meta property="og:image" content="/title-img.png" />
           <link
             href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@100;200;300;400;500;600;700;800;900&display=swap"
             rel="stylesheet"

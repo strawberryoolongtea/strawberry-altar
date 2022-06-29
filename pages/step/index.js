@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { useState } from "react";
 import Bottom from "../../components/Bottom";
 import Candle from "../../components/Candle";
@@ -46,6 +47,9 @@ export default function Step() {
 
   return (
     <div>
+      <Head>
+        <title>소원을 들어줘 🌙 My Altar 🔮 나만의 제단 만들기</title>
+      </Head>
       {isFirstStep ? (
         <Bottom
           toSecondStep={toSecondStep}

@@ -1,10 +1,14 @@
 import Link from "next/link";
 import Image from "next/image";
 import styles from "../styles/Home.module.scss";
+import Head from "next/head";
 
 export default function Home() {
   return (
     <section className={styles.container}>
+      <Head>
+        <title>소원을 들어줘 🌙 My Altar 🔮 시작하기</title>
+      </Head>
       <div>
         <h2 className={styles.sub_title}>소원을 들어줘</h2>
         <h1 className={styles.title}>My Altar</h1>
