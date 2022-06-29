@@ -1,6 +1,6 @@
 import styles from "../styles/Result.module.scss";
 import Link from "next/link";
-// import Image from "next/image";
+import Image from "next/image";
 import MagicCircle from "./MagicCircle";
 import ColorCandle from "./ColorCandle";
 import MagicItem from "./MagicItem";
@@ -16,6 +16,7 @@ export default function Result({
   magicCircle,
   candleColor,
   magicItems,
+  imgUrl,
 }) {
   const bg = bottoms.filter((bottom) => bottom.id === magicCircle)[0];
   const selectedCandle = colors.filter(
@@ -25,85 +26,6 @@ export default function Result({
     toFirstStep();
   }
 
-  const [imgUrl, setImgUrl] = useState("");
-
-  const bottomRef = useRef();
-  const candleRef = useRef();
-  const mergedRef = useRef();
-  const itemRef = useRef([]);
-  const bgRef = useRef();
-  const cvsRef = useRef();
-
-  function onSaveAs() {
-    const bottom = bottomRef.current;
-    const candle = candleRef.current;
-    const merged = mergedRef.current;
-    const bg = bgRef.current;
-    const bgCtx = bg.getContext("2d");
-    const mergedCtx = merged.getContext("2d");
-
-    bgCtx.fillStyle = "#2a3e34";
-    bgCtx.fillRect(0, 0, 1000, 1000);
-    mergedCtx.imageSmoothingEnabled = true;
-    mergedCtx.imageSmoothingQuality = "high";
-    mergedCtx.drawImage(bg, 0, 0, 1000, 1000);
-    mergedCtx.drawImage(bottom, 0, 0, 1000, 1000);
-    const xy = [
-      [20, 20],
-      [330, 20],
-      [20, 330],
-      [330, 330],
-    ];
-    itemRef.current.map((item, idx) => {
-      console.log(item);
-      mergedCtx.drawImage(item, ...xy[idx], 540, 540);
-    });
-    mergedCtx.drawImage(candle, 0, 0, 1000, 1000);
-
-    let link = document.createElement("a");
-    link.download = "my-altar.png";
-    link.href = merged.toDataURL();
-    console.log(merged.toDataURL());
-    mergedRef.current.appendChild(link);
-    link.click();
-    mergedRef.current.removeChild(link);
-  }
-
-  useEffect(() => {
-    const background = bgRef.current;
-    const bottom = bottomRef.current;
-    const candle = candleRef.current;
-    const bgCtx = background.getContext("2d");
-    const bottomCtx = bottom.getContext("2d");
-    const candleCtx = candle.getContext("2d");
-
-    const bottomImg = new Image();
-    const candleImg = new Image();
-
-    bottomImg.src = bg.src;
-    candleImg.src = selectedCandle.src;
-
-    bottomImg.onload = function () {
-      bottomCtx.globalAlpha = 0.3;
-      bottomCtx.drawImage(bottomImg, 0, 0, 1000, 1000);
-    };
-    candleImg.onload = function () {
-      candleCtx.drawImage(candleImg, 0, 0, 1000, 1000);
-    };
-    magicItems.map((magicItem, idx) => {
-      // console.log(itemRef.current);
-      const itemCtx = itemRef.current[idx].getContext("2d");
-      const itemImg = new Image();
-      itemImg.src = magicItem.src;
-      // console.log(itemImg);
-      itemImg.onload = function () {
-        itemCtx.drawImage(itemImg, 0, 0, 540, 540);
-      };
-    });
-
-    html2canvas(cvsRef.current).then((cvs) => setImgUrl(cvs.toDataURL()));
-    console.log(imgUrl);
-  });
   return (
     <section className={styles.container}>
       <div className={styles.title}>
@@ -112,54 +34,21 @@ export default function Result({
           <br />
           소원을 성취해 보세요.
         </p>
-        <div className={styles.btns}>
-          <button className={styles.btn} onClick={onSaveAs}>
-            이미지 저장하기
-          </button>
-        </div>
       </div>
-      <div className={styles.bottom_candle_container} ref={cvsRef}>
-        <canvas
-          className={styles.bg_canvas}
-          width="1000"
-          height="1000"
-          ref={bgRef}
-        />
-        <canvas
-          className={styles.merged_container}
-          width="1000"
-          height="1000"
-          ref={mergedRef}
-        />
-        <canvas
-          className={styles.bottom_container}
-          width="1000"
-          height="1000"
-          ref={bottomRef}
-        />
-        <canvas
-          className={styles.candle_container}
-          width="1000"
-          height="1000"
-          ref={candleRef}
-        />
-        <ul className={styles.items_container}>
-          {magicItems.map((item, idx) => {
-            return (
-              <li className={styles.items} key={item.alt}>
-                <canvas
-                  className={styles.items_canvas}
-                  id={idx}
-                  width="540"
-                  height="540"
-                  ref={(el) => (itemRef.current[idx] = el)}
-                />
-              </li>
-            );
-          })}
-        </ul>
+      <div className={styles.img_desc}>
+        꾹 눌러 이미지를 저장할 수 있습니다.
+        <br />
+        SNS 공유 이벤트에 참여해 특별한 선물을 받아보세요.
       </div>
-      {/* <img src={imgUrl} width={300} height={300} alt="altar" /> */}
+      <div className={styles.altar_img}>
+        <Image
+          src={imgUrl}
+          width={300}
+          height={300}
+          alt="my altar"
+          layout="responsive"
+        />
+      </div>
       <p className={styles.description}>
         주위 사람들이 더 많이 알수록
         <br />

@@ -64,13 +64,15 @@ export default function Bottom({
         >
           {bottoms.map(({ id, src, alt, width, height }) => {
             return (
-              <MagicCircle
-                key={id}
-                src={src}
-                alt={alt}
-                width={width}
-                height={height}
-              />
+              <li className={styles.bottoms} key={alt}>
+                <MagicCircle
+                  key={id}
+                  src={src}
+                  alt={alt}
+                  width={width}
+                  height={height}
+                />
+              </li>
             );
           })}
         </ul>

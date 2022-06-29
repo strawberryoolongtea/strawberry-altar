@@ -20,6 +20,7 @@ export default function Step() {
   const [magicCircle, setMagicCircle] = useState(1);
   const [candleColor, setCandleColor] = useState(colors[0].name);
   const [magicItems, setMagicItems] = useState([]);
+  const [imgUrl, setImgUrl] = useState("");
 
   function toFirstStep() {
     setIsSecondStep(false);
@@ -83,6 +84,7 @@ export default function Step() {
           translateValue={translateValue}
           magicItems={magicItems}
           setMagicItems={setMagicItems}
+          setImgUrl={setImgUrl}
         />
       ) : (
         <Result
@@ -90,6 +92,7 @@ export default function Step() {
           magicCircle={magicCircle}
           candleColor={candleColor}
           magicItems={magicItems}
+          imgUrl={imgUrl}
         />
       )}
     </div>
