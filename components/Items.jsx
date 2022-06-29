@@ -59,12 +59,18 @@ export default function Items({
     pentacleCtx.drawImage(pentacleImg, 0, 0, 2000, 2000);
     mergerCtx.drawImage(pentacle, 0, 0, 600, 600);
 
+    const positions = [
+      [20, 20],
+      [320, 20],
+      [20, 320],
+      [320, 320],
+    ];
     magicItems.map((item, idx) => {
       const itemsCtx = itemsRef.current[idx].getContext("2d");
       const itemsImg = new Image();
       itemsImg.src = item.src;
       itemsCtx.drawImage(itemsImg, 0, 0, 1000, 1000);
-      mergerCtx.drawImage(itemsRef.current[idx], 0, 0, 440, 440);
+      mergerCtx.drawImage(itemsRef.current[idx], ...positions[idx], 260, 260);
     });
 
     candleCtx.drawImage(candleImg, 0, 0, 1600, 1600);
