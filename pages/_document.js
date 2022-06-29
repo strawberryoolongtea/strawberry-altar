@@ -7,13 +7,17 @@ class MyDocument extends Document {
         <Head>
           <meta
             name="description"
-            content="나만의 소원을 이루어 주는 나만의 제단 만들기"
+            content="소원을 이루어 주는 나만의 제단 만들기"
           />
           <meta
             name="viewport"
             content="initial-scale=1.0, width=device-width"
           />
           <meta property="og:title" content="소원을 들어줘 My Altar" />
+          <meta
+            property="og:description"
+            content="소원을 이루어 주는 나만의 제단 만들기"
+          />
           <meta property="og:type" content="website" />
           <meta property="og:url" content="https://www.odd-scythe.com/" />
           <meta property="og:image" content="/title-img.png" />
