@@ -21,6 +21,10 @@ class MyDocument extends Document {
           <meta property="og:type" content="website" />
           <meta property="og:url" content="https://www.odd-scythe.com/" />
           <meta property="og:image" content="/title-img.png" />
+          <meta
+            property="twitter:image"
+            content="https://www.odd-scythe.com/title-img.png"
+          />
           <link
             href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@100;200;300;400;500;600;700;800;900&display=swap"
             rel="stylesheet"
