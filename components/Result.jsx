@@ -2,6 +2,8 @@ import styles from "../styles/Result.module.scss";
 import Image from "next/image";
 import { bottoms } from "../data/bottoms";
 import { colors } from "../data/colors";
+import Share from "./Share";
+import { useState } from "react";
 
 export default function Result({
   toFirstStep,
@@ -11,10 +13,15 @@ export default function Result({
   setMagicItems,
   imgUrl,
 }) {
+  const [isShare, setIsShare] = useState(false);
+
   function restart() {
     toFirstStep();
     setCandleColor(colors[0].name);
     setMagicItems([]);
+  }
+  function share() {
+    setIsShare(true);
   }
 
   return (
@@ -50,8 +57,11 @@ export default function Result({
           다시 만들기
         </button>
 
-        <button className={styles.btn}>공유하기</button>
+        <button className={styles.btn} onClick={share}>
+          공유하기
+        </button>
       </div>
+      {isShare ? <Share setIsShare={setIsShare} /> : null}
     </section>
   );
 }

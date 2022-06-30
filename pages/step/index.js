@@ -48,7 +48,7 @@ export default function Step() {
   return (
     <div>
       <Head>
-        <title>소원을 들어줘 🌙 My Altar 🔮 나만의 제단 만들기</title>
+        <title>소원을 들어줘 🕯 My Altar 🔮 나만의 제단 만들기</title>
       </Head>
       {isFirstStep ? (
         <Bottom

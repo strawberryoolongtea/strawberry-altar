@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <section className={styles.container}>
       <Head>
-        <title>소원을 들어줘 🌙 My Altar 🔮 시작하기</title>
+        <title>소원을 들어줘 🕯 My Altar 🔮 시작하기</title>
       </Head>
       <div>
         <h2 className={styles.sub_title}>소원을 들어줘</h2>
