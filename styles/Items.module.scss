@@ -69,6 +69,8 @@
     padding: 20px 20px;
     background-color: #ccc;
     overflow: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
     p {
       text-align: center;
       font-size: 0.8rem;
@@ -90,6 +92,9 @@
         cursor: pointer;
       }
     }
+  }
+  .items_list::-webkit-scrollbar {
+    display: none;
   }
 }
 .canvas_merger,
