@@ -19,6 +19,7 @@ a {
   position: fixed;
   display: flex;
   justify-content: center;
+  align-items: center;
   width: 100%;
   height: 100%;
   background-color: #6b5d00;
@@ -35,6 +36,11 @@ a {
     padding: 3rem 0 0;
     color: #fff;
     position: relative;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .inner_container::-webkit-scrollbar {
+    display: none;
   }
 }
 @media screen and (min-width: 768px) {
@@ -42,6 +48,7 @@ a {
     padding: 20px;
     .inner_container {
       width: 360px;
+      height: 650px;
       border-radius: 180px 180px 0 0;
       border: 1px solid #e9bc00;
     }
