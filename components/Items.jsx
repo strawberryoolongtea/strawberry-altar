@@ -46,9 +46,9 @@ export default function Items({
     mergerCtx.imageSmoothingQuality = "high";
 
     backgroundCtx.fillStyle = "#2a3e34";
-    backgroundCtx.fillRect(0, 0, 2000, 2000);
+    backgroundCtx.fillRect(0, 0, 3000, 3000);
 
-    mergerCtx.drawImage(background, 0, 0, 600, 600);
+    mergerCtx.drawImage(background, 0, 0, 1080, 1080);
 
     const pentacleImg = new Image();
     const candleImg = new Image();
@@ -56,25 +56,25 @@ export default function Items({
     pentacleImg.src = bg;
     candleImg.src = selectedCandle.src;
     pentacleCtx.globalAlpha = 0.3;
-    pentacleCtx.drawImage(pentacleImg, 0, 0, 2000, 2000);
-    mergerCtx.drawImage(pentacle, 0, 0, 600, 600);
+    pentacleCtx.drawImage(pentacleImg, 0, 0, 3000, 3000);
+    mergerCtx.drawImage(pentacle, 0, 0, 1080, 1080);
 
     const positions = [
-      [20, 20],
-      [320, 20],
-      [20, 320],
-      [320, 320],
+      [50, 50],
+      [580, 20],
+      [20, 580],
+      [580, 580],
     ];
     magicItems.map((item, idx) => {
       const itemsCtx = itemsRef.current[idx].getContext("2d");
       const itemsImg = new Image();
       itemsImg.src = item.src;
-      itemsCtx.drawImage(itemsImg, 0, 0, 1000, 1000);
-      mergerCtx.drawImage(itemsRef.current[idx], ...positions[idx], 260, 260);
+      itemsCtx.drawImage(itemsImg, 0, 0, 3000, 3000);
+      mergerCtx.drawImage(itemsRef.current[idx], ...positions[idx], 450, 450);
     });
 
-    candleCtx.drawImage(candleImg, 0, 0, 1600, 1600);
-    mergerCtx.drawImage(candle, 60, 60, 600, 600);
+    candleCtx.drawImage(candleImg, 0, 0, 3000, 3000);
+    mergerCtx.drawImage(candle, 110, 110, 860, 860);
 
     setImgUrl(merger.toDataURL());
   }
@@ -150,34 +150,34 @@ export default function Items({
       </div>
       <canvas
         className={styles.canvas_merger}
-        width="600"
-        height="600"
+        width="1080"
+        height="1080"
         ref={mergerRef}
       />
       <canvas
         className={styles.canvas_background}
-        width="2000"
-        height="2000"
+        width="3000"
+        height="3000"
         ref={backgroundRef}
       />
       <canvas
         className={styles.canvas_pentacle}
-        width="2000"
-        height="2000"
+        width="3000"
+        height="3000"
         ref={pentacleRef}
       />
       <canvas
         className={styles.canvas_candle}
-        width="2000"
-        height="2000"
+        width="3000"
+        height="3000"
         ref={candleRef}
       />
       {magicItems.map((item, idx) => (
         <canvas
           className={styles.canvas_items}
           key={item.alt}
-          width="1000"
-          height="1000"
+          width="3000"
+          height="3000"
           ref={(el) => (itemsRef.current[idx] = el)}
         ></canvas>
       ))}
