@@ -13,9 +13,9 @@ export default function ShareButton() {
     window.open(`http://www.facebook.com/sharer/sharer.php?u=${url}`);
   }
   function shareKakao() {
-    // console.log(process.env.NEXT_PUBLIC_KAKAO_API_KEY);
-    Kakao.init(process.env.NEXT_PUBLIC_KAKAO_API_KEY);
-    Kakao.Share.createScrapButton({ requestUrl: "https://odd-scythe.com" });
+    console.log(process.env.NEXT_PUBLIC_KAKAO_API_KEY);
+    window.Kakao.init(process.env.NEXT_PUBLIC_KAKAO_API_KEY);
+    window.Kakao.Share.sendScrap({ requestUrl: "https://odd-scythe.com" });
   }
   return (
     <ul className={styles.btns}>

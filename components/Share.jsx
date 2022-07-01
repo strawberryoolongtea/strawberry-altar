@@ -20,7 +20,9 @@ export default function Share({ setIsShare }) {
     <section className={styles.container}>
       <h1 className={styles.title}>SNS 공유하기</h1>
       <h2 className={styles.desc}>
-        모두가 자신만의 제단을 만들 수 있도록 공유해요!
+        자신만의 제단을 만들 수 있도록
+        <br />
+        모두에게 공유해요!
       </h2>
       <ShareButton />
       <h1 className={styles.title}>또는 링크로 공유하기</h1>
