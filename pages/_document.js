@@ -30,6 +30,10 @@ class MyDocument extends Document {
             rel="stylesheet"
           />
           <link rel="stylesheet" href="https://use.typekit.net/pdr5lqh.css" />
+          <script
+            defer
+            src="https://developers.kakao.com/sdk/js/kakao.min.js"
+          ></script>
         </Head>
         <body>
           <Main />
