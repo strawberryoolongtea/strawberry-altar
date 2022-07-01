@@ -12,6 +12,11 @@ export default function ShareButton() {
   function shareFacebook() {
     window.open(`http://www.facebook.com/sharer/sharer.php?u=${url}`);
   }
+  function shareKakao() {
+    // console.log(process.env.NEXT_PUBLIC_KAKAO_API_KEY);
+    Kakao.init(process.env.NEXT_PUBLIC_KAKAO_API_KEY);
+    Kakao.Share.createScrapButton({ requestUrl: "https://odd-scythe.com" });
+  }
   return (
     <ul className={styles.btns}>
       <li onClick={shareTwitter}>
@@ -20,7 +25,7 @@ export default function ShareButton() {
       <li onClick={shareFacebook}>
         <RiFacebookFill />
       </li>
-      <li>
+      <li onClick={shareKakao}>
         <RiKakaoTalkFill />
       </li>
     </ul>
