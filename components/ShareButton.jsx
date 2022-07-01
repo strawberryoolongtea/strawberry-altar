@@ -1,7 +1,11 @@
 import styles from "../styles/Share.module.scss";
 import { RiTwitterFill, RiFacebookFill, RiKakaoTalkFill } from "react-icons/ri";
+import { useEffect } from "react";
 
 export default function ShareButton() {
+  useEffect(() => {
+    window.Kakao.init(process.env.NEXT_PUBLIC_KAKAO_API_KEY);
+  }, []);
   const text =
     "소원을 들어줘 🕯 My Altar 🔮 소원을 이루어 주는 나만의 제단 만들기";
   const url = "https://www.odd-scythe.com";
@@ -13,9 +17,7 @@ export default function ShareButton() {
     window.open(`http://www.facebook.com/sharer/sharer.php?u=${url}`);
   }
   function shareKakao() {
-    window.Kakao.init(process.env.NEXT_PUBLIC_KAKAO_API_KEY);
     window.Kakao.Share.sendScrap({ requestUrl: "https://odd-scythe.com" });
-    // window.location.href = "https://www.odd-scythe.com";
   }
   return (
     <ul className={styles.btns}>
