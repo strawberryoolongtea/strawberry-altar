@@ -15,7 +15,7 @@ export default function ShareButton() {
   function shareKakao() {
     window.Kakao.init(process.env.NEXT_PUBLIC_KAKAO_API_KEY);
     window.Kakao.Share.sendScrap({ requestUrl: "https://odd-scythe.com" });
-    window.location.href = "https://www.odd-scythe.com";
+    // window.location.href = "https://www.odd-scythe.com";
   }
   return (
     <ul className={styles.btns}>
